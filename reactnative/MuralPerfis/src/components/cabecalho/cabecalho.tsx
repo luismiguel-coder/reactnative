@@ -1,7 +1,7 @@
 import { View, Text }  from "react-native";
 import {styles} from './style'
 
-function cabecalho ({name, position, color}: any){      
+export default function Cabecalho ({name, position, color}: any){      
     return(
         <View>
             <View style={[styles.avatar,{backgroundColor:color}]}>
@@ -15,12 +15,7 @@ function cabecalho ({name, position, color}: any){
         
         </View>
 
-
-        
-        
-
         
     );
 }
 
-export default cabecalho;

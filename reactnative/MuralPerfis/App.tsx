@@ -1,42 +1,54 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button} from 'react-native';
+import { StyleSheet, Text, View, Button, ScrollView} from 'react-native';
+import PerfilCartao from './src/components/perfilCartao/perfilCartão';
 import { useState } from 'react';
 
 export default function App() {
   
-  const [contador,setContador] = useState(0);
-  const adicionarUm = () => setContador(()=>+1);
-  const removerUm = () => setContador(()=>-1);
-  const zerar = () => setContador(0);
-  
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-      <Text>
-        Contador: {contador}
-      </Text>
-      <Button 
-       title='Adicionar'
-       onPress={adicionarUm}
-       />
-        <Button 
-       title='Remover'
-       onPress={removerUm}
-       />
-        <Button
-       onPress={zerar} 
-       title='Zerar'
-       />
-    </View>
+    <ScrollView contentContainerStyle={styles.tela}>
+      <Text style={styles.titulo}>Mural de Perfis</Text>
+      <PerfilCartao
+      nome="Luis Miguel"
+      position="Analista de Sistema "
+      bio="Apaixonado por Tec"
+      color= "#000"
+      >
+        
+      </PerfilCartao>
+
+        <PerfilCartao
+      nome="Kamila"
+      position="Matematica "
+      bio="Que situação"
+      color= "#100570"
+      >
+        
+      </PerfilCartao>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    tela: {
+      padding: 20,
+      paddingTop:60,
+      backgroundColor: '#f1f5f9'
+    },
+
+    titulo: {
+      fontSize:26,
+      fontWeight: 'bold',
+      marginBottom: 16
+    },
+
+    nome: {
+      fontSize: 18,
+      fontWeight: 600
+    },
+
+    bio: {
+      marginBottom:10,
+      color: '#334155'
+    }
 });
